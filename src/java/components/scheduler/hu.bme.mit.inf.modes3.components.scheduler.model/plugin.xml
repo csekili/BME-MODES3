@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated scheduler -->
+      <package
+            uri="http://hu.bme.mit.inf.schedulermodel"
+            class="hu.bme.mit.inf.modes3.components.scheduler.model.SchedulerModel.SchedulerPackage"
+            genModel="model/scheduler.genmodel"/>
+   </extension>
+
+</plugin>

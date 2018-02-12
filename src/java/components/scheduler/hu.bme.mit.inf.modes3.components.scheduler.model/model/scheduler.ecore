@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SchedulerModel" nsURI="http://hu.bme.mit.inf.schedulermodel"
+    nsPrefix="SchedulerModel">
+  <eClassifiers xsi:type="ecore:EClass" name="Schedule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//ScheduleEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScheduleEntry" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" lowerBound="1"
+        upperBound="-1" eType="#//ScheduleSection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="#//Station"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//Station"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="train" lowerBound="1" eType="ecore:EClass ../../hu.bme.mit.inf.modes3.components.safetylogic.systemlevel.model/model/model.ecore#//Train"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="first" lowerBound="1" eType="#//ScheduleSection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="last" lowerBound="1" eType="#//ScheduleSection"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScheduleSection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supposedDeparture" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actualDeparture" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="route" lowerBound="1" eType="#//Route"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//ScheduleSection"
+        eOpposite="#//ScheduleSection/previous"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//ScheduleSection"
+        eOpposite="#//ScheduleSection/next"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Route" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="paths" lowerBound="2" upperBound="-1"
+        eType="#//RouteElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="first" lowerBound="1" eType="#//RouteElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="last" lowerBound="1" eType="#//RouteElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Station" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="place" lowerBound="1" eType="ecore:EClass ../../hu.bme.mit.inf.modes3.components.safetylogic.systemlevel.model/model/model.ecore#//Segment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheduler">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="routes" upperBound="-1"
+        eType="#//Route" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schedule" lowerBound="1"
+        eType="#//Schedule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stations" upperBound="-1"
+        eType="#//Station" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RouteElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//RouteElement"
+        eOpposite="#//RouteElement/previous"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" lowerBound="1" eType="ecore:EClass ../../hu.bme.mit.inf.modes3.components.safetylogic.systemlevel.model/model/model.ecore#//Path"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//RouteElement"
+        eOpposite="#//RouteElement/next"/>
+  </eClassifiers>
+</ecore:EPackage>

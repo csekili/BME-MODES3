@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SchedulerModel:Scheduler
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:SchedulerModel="http://hu.bme.mit.inf.schedulermodel"
+    xsi:schemaLocation="http://hu.bme.mit.inf.schedulermodel scheduler.ecore">
+  <routes/>
+  <stations/>
+</SchedulerModel:Scheduler>

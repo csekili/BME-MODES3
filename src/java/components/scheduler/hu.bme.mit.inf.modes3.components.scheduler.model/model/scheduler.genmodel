@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hu.bme.mit.inf.modes3.components.scheduler.model/src"
+    editDirectory="/hu.bme.mit.inf.modes3.components.scheduler.model.edit/src" editorDirectory="/hu.bme.mit.inf.modes3.components.scheduler.model.editor/src"
+    modelPluginID="hu.bme.mit.inf.modes3.components.scheduler.model" modelName="Scheduler"
+    modelPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    editPluginID="hu.bme.mit.inf.modes3.components.scheduler.model.edit" editorPluginID="hu.bme.mit.inf.modes3.components.scheduler.model.editor"
+    usedGenPackages="../../hu.bme.mit.inf.modes3.components.safetylogic.systemlevel.model/model/model.genmodel#//RailRoadModel"
+    interfaceNamePattern="" operationReflection="true" importOrganizing="true">
+  <foreignModel>scheduler.ecore</foreignModel>
+  <genPackages prefix="Scheduler" basePackage="hu.bme.mit.inf.modes3.components.scheduler.model"
+      disposableProviderFactory="true" fileExtensions="schedulermodel" ecorePackage="scheduler.ecore#/">
+    <genClasses ecoreClass="scheduler.ecore#//Schedule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="scheduler.ecore#//ScheduleEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleEntry/sections"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleEntry/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleEntry/to"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleEntry/train"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleEntry/first"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleEntry/last"/>
+    </genClasses>
+    <genClasses ecoreClass="scheduler.ecore#//ScheduleSection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scheduler.ecore#//ScheduleSection/supposedDeparture"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scheduler.ecore#//ScheduleSection/actualDeparture"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleSection/route"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleSection/next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleSection/previous"/>
+    </genClasses>
+    <genClasses ecoreClass="scheduler.ecore#//Route">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Route/paths"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Route/first"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Route/last"/>
+    </genClasses>
+    <genClasses ecoreClass="scheduler.ecore#//Station">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Station/place"/>
+    </genClasses>
+    <genClasses ecoreClass="scheduler.ecore#//Scheduler">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scheduler.ecore#//Scheduler/routes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scheduler.ecore#//Scheduler/schedule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scheduler.ecore#//Scheduler/stations"/>
+    </genClasses>
+    <genClasses ecoreClass="scheduler.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scheduler.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="scheduler.ecore#//RouteElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//RouteElement/next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//RouteElement/path"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//RouteElement/previous"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

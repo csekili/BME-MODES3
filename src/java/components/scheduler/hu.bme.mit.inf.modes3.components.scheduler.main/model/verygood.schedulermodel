@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<SchedulerModel:Scheduler xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:SchedulerModel="http://hu.bme.mit.inf.schedulermodel">
+  <schedule/>
+  <stations name="15">
+    <place href="model/instance.railroadmodel#15"/>
+  </stations>
+</SchedulerModel:Scheduler>
