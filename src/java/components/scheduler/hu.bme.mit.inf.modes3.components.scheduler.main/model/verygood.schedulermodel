@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="ASCII"?>
 <SchedulerModel:Scheduler xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:SchedulerModel="http://hu.bme.mit.inf.schedulermodel">
   <schedule/>
-  <stations name="15">
-    <place href="model/instance.railroadmodel#15"/>
+  <stations name="24">
+    <place href="model/instance.railroadmodel#24"/>
+  </stations>
+  <stations name="26">
+    <place href="model/instance.railroadmodel#26"/>
+  </stations>
+  <stations name="19">
+    <place href="model/instance.railroadmodel#19"/>
+  </stations>
+  <stations name="20">
+    <place href="model/instance.railroadmodel#20"/>
+  </stations>
+  <stations name="7">
+    <place href="model/instance.railroadmodel#7"/>
+  </stations>
+  <stations name="6">
+    <place href="model/instance.railroadmodel#6"/>
   </stations>
 </SchedulerModel:Scheduler>
