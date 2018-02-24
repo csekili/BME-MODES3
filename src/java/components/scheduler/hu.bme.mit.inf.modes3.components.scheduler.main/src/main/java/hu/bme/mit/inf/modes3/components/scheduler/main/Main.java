@@ -47,24 +47,24 @@ public class Main {
 		Station station2 = SchedulerFactory.eINSTANCE.createStation();
 		Station station3 = SchedulerFactory.eINSTANCE.createStation();
 		Station station4 = SchedulerFactory.eINSTANCE.createStation();
-		Station station5 = SchedulerFactory.eINSTANCE.createStation();
-		Station station6 = SchedulerFactory.eINSTANCE.createStation();
+		//Station station5 = SchedulerFactory.eINSTANCE.createStation();
+		//Station station6 = SchedulerFactory.eINSTANCE.createStation();
 		
 		Segment segment1 = null;
 		Segment segment2 = null;
 		Segment segment3 = null;
 		Segment segment4 = null;
-		Segment segment5 = null;
-		Segment segment6 = null;
+		//Segment segment5 = null;
+		//Segment segment6 = null;
 		
 		for (RailRoadElement element : railroadModel.getSections()) {
 			if (element instanceof Segment) {
 				if(element.getId()==25) segment1 = (Segment) element;
 				if(element.getId()==22) segment2 = (Segment) element;
-				if(element.getId()==13) segment3 = (Segment) element;
-				if(element.getId()==07) segment4 = (Segment) element;
-				if(element.getId()==18) segment5 = (Segment) element;
-				if(element.getId()==19) segment6 = (Segment) element;
+				if(element.getId()==18) segment3 = (Segment) element;
+				if(element.getId()==19) segment4 = (Segment) element;
+				//if(element.getId()==13) segment5 = (Segment) element;
+				//if(element.getId()==07) segment6 = (Segment) element;
 			}
 		}
 		station1.setPlace(segment1);
@@ -83,6 +83,7 @@ public class Main {
 		station4.setName(String.valueOf(segment4.getId()));
 		scheduler.getStations().add(station4);
 		
+		/*
 		station5.setPlace(segment5);
 		station5.setName(String.valueOf(segment5.getId()));
 		scheduler.getStations().add(station5);
@@ -90,8 +91,8 @@ public class Main {
 		station6.setPlace(segment6);
 		station6.setName(String.valueOf(segment6.getId()));
 		scheduler.getStations().add(station6);
+		 */
 		
-
 		Schedule schedule = SchedulerFactory.eINSTANCE.createSchedule();
 		scheduler.setSchedule(schedule);
 
@@ -110,12 +111,13 @@ public class Main {
 		// writer.close();
 	}
 
-	private static List<Path> createAllPaths(Resource modelResource) throws ViatraQueryException {
+	public static List<Path> createAllPaths(Resource modelResource) throws ViatraQueryException {
 
 		ViatraQueryEngine engine = ViatraQueryEngine.on(new EMFScope(modelResource));
 		ThreeConnectedRailRoadPartsMatcher matcher = ThreeConnectedRailRoadPartsMatcher.on(engine);
 
 		List<Path> paths = ((RailRoadModel) modelResource.getContents().get(0)).getPaths();
+		//paths.clear();
 
 		matcher.getAllMatches().stream().forEach(it -> {
 			Path path = RailRoadModelFactory.eINSTANCE.createPath();

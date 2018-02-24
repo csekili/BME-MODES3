@@ -1,3 +1,21 @@
 package hu.bme.mit.inf.modes3.components.scheduler.validation
 
 import "http://hu.bme.mit.inf.safetylogic.railroadmodel"
+import "http://hu.bme.mit.inf.schedulermodel"
+
+pattern path_connectedTo(one : Path, other : Path) = {
+	RailRoadElement(commonRailRoadElement);
+	Path.via(other, commonRailRoadElement);	
+	Path.to(one, commonRailRoadElement);
+	Path.via.id(other,id_v);
+	Path.via.id(one,id_to);
+} 
+
+pattern reachableElement( from: RailRoadElement, to: RailRoadElement){
+	Turnout(from);
+	RailRoadElement.id(to, 13);
+	Path.via(firstPath, from);
+	Path.via(lastPath, to);
+	from!=to;
+	find path_connectedTo+(firstPath, lastPath);
+}
